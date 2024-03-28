@@ -1,22 +1,25 @@
-const { leerInput, inquirerMenu, pausa } = require("./helpers/inquirer")
+const { leerInput, inquirerMenu, pausa, confirmar } = require("./helpers/inquirer")
 
 const main = async () => {
-    let opt = await inquirerMenu()
+    
+    let opt; 
 
     do {
+        opt = await inquirerMenu()
         switch (opt) {
             case 1:
                 console.log("opcion 1");
-                pausa();
+                await pausa();
                 break;
-
             case 2:
                 console.log("opcion 2");
-                pausa();
-                break
+                await pausa();
+                break;
+            case 0:
+                await confirmar("gracias por preferirnos, chau");
+                break;
         }
-    } while (opt === 0)
-
+    } while (opt !== 0);
 }
 
 main();
