@@ -84,7 +84,11 @@ class Busquedas {
 
     agregarHistorial(lugar = '') {
         // TODO prevenir duplicados
+        if( this.historial.includes(lugar.toLocaleLowerCase() )){
+            return
+        }
 
+        this.historial = this.historial.splice(0,4);
         this.historial.unshift(lugar.toLowerCase())
 
         // Grabar en DB
