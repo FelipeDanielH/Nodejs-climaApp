@@ -53,7 +53,7 @@ const main = async () => {
                 await pausa();
                 break;
             case 0:
-                await confirmar("gracias por preferirnos, chau");
+                await confirmar("gracias por preferirnos");
                 break;
         }
     } while (opt !== 0);
