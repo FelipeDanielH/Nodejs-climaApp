@@ -4,6 +4,7 @@ const axios = require('axios');
 class Busquedas {
     historial = [];
     dbPath = './db/database.json';
+    dbFolder = './db';
 
     constructor() {
         // TODO leer DB si existe
@@ -105,7 +106,13 @@ class Busquedas {
 
     leerDB() {
 
-        if (!fs.existsSync(this.dbPath)) return
+        if (!fs.existsSync(this.dbPath)){
+            fs.mkdirSync(this.dbFolder);
+            fs.writeFileSync(this.dbPath,'', (err) => {
+                if(err) throw err;
+            });
+            return
+        }
 
         const info = fs.readFileSync(this.dbPath,{
             encoding: 'utf-8'
