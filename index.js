@@ -7,7 +7,6 @@ const main = async () => {
     const busquedas = new Busquedas();
     let opt;
     busquedas.leerDB();
-    await pausa();
 
     do {
         opt = await inquirerMenu();
